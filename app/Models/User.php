@@ -42,4 +42,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * The todoTaskList that is asigned to the todouser .
+     */
+    public function todoTaskList()
+    {
+        return $this->belongsToMany(todoTaskList::class);
+    }
 }
