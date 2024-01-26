@@ -19,4 +19,15 @@ class UserTodoTaskList extends Model
         'user_id',
         'todo_task_list_id',
     ];
+
+
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
+
+    public function todoTasks()
+    {
+        return $this->hasMany(TodoTaskList::class);
+    }
 }
