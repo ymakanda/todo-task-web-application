@@ -14,7 +14,7 @@ class DisplayAllIssues extends Controller
     public function __invoke(Request $request)
     {
         $responce = Http::get('https://api.github.com/repos/ymakanda/todo-task-web-application/issues?state=all');
-        
+
         if ($responce->status() == 200) {
             $data = $responce->json();
 
