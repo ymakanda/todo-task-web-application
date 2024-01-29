@@ -4,7 +4,7 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('All Issues') }}
             </h2>
-            <a href="{{ route('create-todo') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">ADD</a>
+            <a href="{{ route('create-issues') }}" class="bg-blue-500 text-white px-4 py-2 rounded-md">ADD</a>
         </div>
     </x-slot>
 
