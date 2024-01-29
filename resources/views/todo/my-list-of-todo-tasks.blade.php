@@ -23,7 +23,7 @@
                         </thead>
                         <tbody class="bg-white">
                             {{-- populate my todo task data --}}
-                            @foreach ($myTodoTaskList as $todo)
+                            @forelse ($myTodoTaskList as $todo)
                                 <tr>
                                     <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ $todo->title }}</td>
                                     <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ $todo->created_at->diffForHumans() }}</td>
@@ -38,7 +38,11 @@
                                         @include('todo.crud-my-todo.delete-assigned-task-form')
                                     </td>
                                 </tr>
-                            @endforeach
+                            @empty
+                                <tr>
+                                    <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">No todo task found </td>
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
