@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\{ Dashboard, ListOfTodoTask, MyListOfTodoTask };
 use App\Http\Controllers\TodoTask\{ CreateTodoTask, UpdateTodoTask, ViewTodoTask, DeleteTodoTask };
 use App\Http\Controllers\MyTodoTask\{ AssignTodoTask, UpdateAssignedTodoTask, DeleteAssignedTodoTask};
+use App\Http\Controllers\Api\GithubApi\{ DisplayAllIssues, DisplayAllOpenedIssues, DisplayAllClosedIssues };
 
 use Illuminate\Support\Facades\Route;
 
@@ -45,6 +46,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/my-todo-task/{id}', [UpdateAssignedTodoTask::class, 'edit'])->name('edit-my-todo');
     Route::get('/my-todo-task/update{id}', [UpdateAssignedTodoTask::class, 'update'])->name('update-my-todo');
     Route::delete('/todo-task/delete/my-todo/{id}', DeleteAssignedTodoTask::class)->name('delete-my-todo');
+
+    // Getting data from Github API
+    Route::get('all-issues', DisplayAllIssues::class)->name('all-issues');
+    Route::get('all-opened-issues', DisplayAllOpenedIssues::class)->name('all-opened-issues');
+    Route::get('all-closed-issues', DisplayAllClosedIssues::class)->name('all-closed-issues');
 
 });
 

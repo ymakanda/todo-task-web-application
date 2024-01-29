@@ -22,14 +22,18 @@
                         </thead>
                         <tbody class="bg-white">
                             {{-- populate our todo task data --}}
-                            @foreach ($todoTaskList as $todo)
+                            @forelse ($todoTaskList as $todo)
                                 <tr>
                                     <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ $todo->title }}</td>
                                     <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ $todo->created_at->diffForHumans() }}</td>
                                     <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ $todo->updated_at->diffForHumans() }}</td>
                                     <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">Status</td>
                                 </tr>
-                            @endforeach
+                            @empty
+                                <tr>
+                                    <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400"> 'No Todo Task Found' </td>
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
