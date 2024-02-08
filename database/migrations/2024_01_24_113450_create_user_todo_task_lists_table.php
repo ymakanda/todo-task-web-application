@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_todo_task_lists', function (Blueprint $table) {
+        Schema::create('todo_task_list_user', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('todo_task_list_id')->constrained();
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_todo_task_lists');
+        Schema::dropIfExists('todo_task_list_user');
     }
 };

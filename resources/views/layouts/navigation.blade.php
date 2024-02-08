@@ -27,17 +27,17 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('all-issues')" :active="request()->routeIs('all-my-todo-task')">
+                    <x-nav-link :href="route('all-issues')" :active="request()->routeIs('all-issues')">
                         {{ __('All Issues') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('all-opened-issues')" :active="request()->routeIs('all-my-todo-task')">
+                    <x-nav-link :href="route('all-opened-issues')" :active="request()->routeIs('all-opened-issues')">
                         {{ __('All Opened Issues') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('all-closed-issues')" :active="request()->routeIs('all-my-todo-task')">
+                    <x-nav-link :href="route('all-closed-issues')" :active="request()->routeIs('all-closed-issues')">
                         {{ __('All Closed Issues') }}
                     </x-nav-link>
                 </div>
