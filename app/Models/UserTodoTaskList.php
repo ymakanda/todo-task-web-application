@@ -15,6 +15,7 @@ class UserTodoTaskList extends Model
      *
      * @var array
      */
+    protected $table = 'todo_task_list_user';
     protected $fillable = [
         'user_id',
         'todo_task_list_id',

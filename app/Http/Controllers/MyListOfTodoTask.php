@@ -19,15 +19,7 @@ class MyListOfTodoTask extends Controller
     {
         $user = Auth::user();
 
-        $userTodoTaskListIds = UserTodoTaskList::select('todo_task_list_id')
-            ->where('user_id', $user->id)
-            ->get()
-            ->toArray();
-
-        $allMyTodoTask= TodoTaskList::whereIn('id', $userTodoTaskListIds)
-            ->orderBy('updated_at', 'desc')
-            ->limit(10)
-            ->get();
+        $allMyTodoTask = $user->todoTaskList;
         
         return response()->view('todo.my-list-of-todo-tasks', [
             'myTodoTaskList' => $allMyTodoTask
