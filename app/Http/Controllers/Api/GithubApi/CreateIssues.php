@@ -19,9 +19,9 @@ class CreateIssues extends Controller
     {
         $validatedData = $request->validated();
         
-        $responce = Http::withToken(env('GITHUB_TOKEN'))->get('https://api.github.com/repos/ymakanda/todo-task-web-application/issues/' , $validatedData);
+        $responce = Http::withToken(env('GITHUB_TOKEN'))->post('https://api.github.com/repos/ymakanda/todo-task-web-application/issues' , $validatedData);
 
-        if ($responce->status() == 200) {
+        if ($responce->status() == 201) {
             session()->flash('notif.success', 'Issue created successfully!');
             return redirect()->route('all-issues');
         }
@@ -30,4 +30,3 @@ class CreateIssues extends Controller
     }
         
 }
-
