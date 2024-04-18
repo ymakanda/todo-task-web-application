@@ -38,7 +38,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/todo-task/{id}', [UpdateTodoTask::class, 'edit'])->name('edit-todo');
     Route::put('/todo-task/{id}', [UpdateTodoTask::class, 'update'])->name('update-todo');
     Route::get('/todo-task/show/{id}', ViewTodoTask::class)->name('view-todo');
-    Route::delete('/todo-task/delete/todo/{id}', DeleteTodoTask::class)->name('delete-todo');
+    //Route::delete('/todo-task/delete/todo/{id}', DeleteTodoTask::class)->name('delete-todo');
+    Route::get('/todo-task/delete/{id}', [DeleteTodoTask::class, 'delete'])->name('delete-todo');
+    Route::delete('/todo-task/delete/{id}', [DeleteTodoTask::class, 'destroy'])->name('destroy-todo');
 
     //My todo task
     Route::get('/my-todo-task', [AssignTodoTask::class, 'create'])->name('create-my-todo');
