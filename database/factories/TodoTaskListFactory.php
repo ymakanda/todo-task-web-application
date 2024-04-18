@@ -17,7 +17,7 @@ class TodoTaskListFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->sentence(),
+            'title' => $this->faker->unique()->word(),
             'description' => $this->faker->sentence(),
             'comments' => $this->faker->sentence(),
         ];

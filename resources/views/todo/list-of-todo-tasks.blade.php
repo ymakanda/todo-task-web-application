@@ -31,11 +31,7 @@
                                     <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
                                         <a href="{{ route('view-todo', $todo->id) }}" class="border border-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md">SHOW</a>
                                         <a href="{{ route('edit-todo', $todo->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDIT</a>
-                                        <button class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md"
-                                             x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-todo-task-deletion')"
-                                        >Delete</button>
-
-                                        @include('todo.crud-todo.delete-todo-task-form')
+                                        <a href="{{ route('delete-todo', $todo->id) }}" class="border border-red-500 hover:bg-red-500 hover:text-white px-4 py-2 rounded-md">DELETE</a>
                                     </td>
                                 </tr>
                             @empty
