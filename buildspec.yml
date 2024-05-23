@@ -13,11 +13,17 @@ phases:
       - php composer-setup.php --install-dir=/usr/local/bin --filename=composer
   pre_build:
     commands:
-      - echo Installing dependencies... And Running migrations...
+      - echo Installing dependencies..
       - composer install
+      - echo Installing Node.js dependencies...
       - npm install
-      - php artisan migrate
-      - php artisan db:seed
+      - echo Setting storage permissions...
+      - sudo chown -R $(whoami):$(whoami) storage bootstrap/cache
+      - sudo chmod -R 775 storage bootstrap/cache
+      - echo Running database migrations...
+      - php artisan migrate --force
+      - echo Seeding database...
+      - php artisan db:seed --force
   build:
     commands:
       - echo Building assets...
