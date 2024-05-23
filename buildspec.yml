@@ -13,8 +13,15 @@ phases:
       - php composer-setup.php --install-dir=/usr/local/bin --filename=composer
   pre_build:
     commands:
+      - echo Installing dependencies... And Running migrations...
       - composer install
       - npm install
+      - php artisan migrate
+      - php artisan db:seed
+  build:
+    commands:
+      - echo Building assets...
+      - npm run dev
 artifacts:
   files:
     - '**/*'
