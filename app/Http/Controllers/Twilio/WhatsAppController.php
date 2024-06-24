@@ -59,6 +59,7 @@ class WhatsAppController extends Controller
                 }
             }
             echo '</pre>';
+            
             return response()->json(['message' => 'WhatsApp message sent successfully', 'data'  => $recipientNumber ]);
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
