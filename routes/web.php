@@ -5,6 +5,7 @@ use App\Http\Controllers\{ Dashboard, ListOfTodoTask, MyListOfTodoTask };
 use App\Http\Controllers\TodoTask\{ CreateTodoTask, UpdateTodoTask, ViewTodoTask, DeleteTodoTask };
 use App\Http\Controllers\MyTodoTask\{ AssignTodoTask, UpdateAssignedTodoTask, DeleteAssignedTodoTask };
 use App\Http\Controllers\Api\GithubApi\{ CreateIssues, DisplayAllIssues, DisplayAllOpenedIssues, DisplayAllClosedIssues };
+use App\Http\Controllers\Twilio\{ WhatsAppController};
 
 use Illuminate\Support\Facades\Route;
 
@@ -55,6 +56,8 @@ Route::middleware('auth')->group(function () {
     Route::get('all-issues', DisplayAllIssues::class)->name('all-issues');
     Route::get('all-opened-issues', DisplayAllOpenedIssues::class)->name('all-opened-issues');
     Route::get('all-closed-issues', DisplayAllClosedIssues::class)->name('all-closed-issues');
+    Route::get('whatsapp-send', [WhatsAppController::class, 'create'])->name('whatsapp-send');
+    Route::get('whatsapp-msgs', [WhatsAppController::class, 'index'])->name('whatsapp-msgs');
 
 });
 
