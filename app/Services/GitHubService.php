@@ -10,6 +10,7 @@ class GitHubService implements GitHubServiceInterface
     {
         $this->token = env('GITHUB_TOKEN');
     }
+    
     public function getIssues(string $owner, string $repo, string $state = null): array
     {
         $params = [
@@ -35,7 +36,7 @@ class GitHubService implements GitHubServiceInterface
         return $issues;
     }
 
-    public function creatIssue($data): array
+    public function createIssue(string $owner, string $repo, array $data): array
     {
         $url = "https://api.github.com/repos/$owner/$repo/issues?". http_build_query($data);
 
